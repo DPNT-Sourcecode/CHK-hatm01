@@ -1,6 +1,8 @@
 package befaster.solutions.CHK;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class CheckoutSolution {
@@ -56,15 +58,26 @@ public class CheckoutSolution {
 	
 	public Integer checkout(String skus) {
 		Integer total = 0;
+		Map<Character, Integer> mapItems = new HashMap<Character, Integer>();
     	// checking only the capital letters
     	for(int i = 0; i < skus.length(); i++){
     		if(skus.charAt(i) < 65 && skus.charAt(i) > 68){
         		return -1;
         	}
-    		if()
+    		Integer mapQty = mapItems.get(skus.charAt(i));
+    		if( mapQty != null){
+    			mapItems.remove(skus.charAt(i));
+    			mapItems.put(skus.charAt(i), ++mapQty);
+    		}
+    	}
+    	for (Map.Entry<Character, Integer> entry : mapItems.entrySet()){
+    		Item item = getItemByName(entry.getKey());
+    		if(item != null && item.getQuantityOffer() != null){
+    			total += (entry.getValue() / item.getQuantityOffer()) * item.getQuantityOfferPrice() + (entry.getValue() % item.getQuantityOffer()) * item.getItemPrice();
+    		}
     	}
     	
-    	
+    	return total;
     }
 	
 	private Item getItemByName(char itemName){
