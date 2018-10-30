@@ -55,13 +55,27 @@ public class CheckoutSolution {
 	}
 	
 	public Integer checkout(String skus) {
+		Integer total = 0;
     	// checking only the capital letters
     	for(int i = 0; i < skus.length(); i++){
-    		if(skus.charAt(i) < 65 && skus.charAt(i) > 90){
+    		if(skus.charAt(i) < 65 && skus.charAt(i) > 68){
         		return -1;
         	}
+    		if()
     	}
     	
     	
     }
+	
+	private Item getItemByName(char itemName){
+		if(items == null || items.isEmpty()){
+			return null;
+		}
+		for(Item item : items){
+			if(itemName == item.getItemName()){
+				return item;
+			}
+		}
+		return null;
+	}
 }
