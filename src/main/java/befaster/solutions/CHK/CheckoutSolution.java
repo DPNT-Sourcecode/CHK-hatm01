@@ -48,15 +48,12 @@ public class CheckoutSolution {
 
 	private Set<Item> items;
 	
-	public CheckoutSolution(){
+	public Integer checkout(String skus) {
 		items = new HashSet<Item>();
 		items.add(new Item('A', 50, 3, 130));
 		items.add(new Item('B', 30, 2, 45));
 		items.add(new Item('C', 20, null, null));
 		items.add(new Item('D', 15, null, null));
-	}
-	
-	public Integer checkout(String skus) {
 		Integer total = 0;
 		Map<Character, Integer> mapItems = new HashMap<Character, Integer>();
     	// checking only the capital letters
