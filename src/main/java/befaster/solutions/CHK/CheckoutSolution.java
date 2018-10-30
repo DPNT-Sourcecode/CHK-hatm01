@@ -1,9 +1,14 @@
 package befaster.solutions.CHK;
 
-import befaster.runner.SolutionNotImplementedException;
-
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        throw new SolutionNotImplementedException();
+    	// checking only the capital letters
+    	for(int i = 0; i < skus.length(); i++){
+    		if(skus.charAt(i) < 65 && skus.charAt(i) > 90){
+        		return -1;
+        	}
+    	}
+    	
+    	
     }
 }
