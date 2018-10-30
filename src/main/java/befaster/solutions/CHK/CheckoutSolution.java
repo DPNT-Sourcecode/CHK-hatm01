@@ -65,6 +65,8 @@ public class CheckoutSolution {
     		if( mapQty != null){
     			mapItems.remove(skus.charAt(i));
     			mapItems.put(skus.charAt(i), ++mapQty);
+    		}else{
+    			mapItems.put(skus.charAt(i), 1);
     		}
     	}
     	for (Map.Entry<Character, Integer> entry : mapItems.entrySet()){
