@@ -68,7 +68,7 @@ public class CheckoutSolution {
 		Map<Character, Integer> mapItems = new HashMap<Character, Integer>();
 		// checking only the capital letters
 		for (int i = 0; i < skus.length(); i++) {
-			if ((int)skus.charAt(i) < 65 && (int)skus.charAt(i) > 68) {
+			if ((int)skus.charAt(i) < 65 || (int)skus.charAt(i) > 68) {
 				return -1;
 			}
 			Integer mapQty = mapItems.get(skus.charAt(i));
